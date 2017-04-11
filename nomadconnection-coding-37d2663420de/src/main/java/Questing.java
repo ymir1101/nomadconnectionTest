@@ -31,7 +31,6 @@ class Questing {
 				stack.push(c);
 			} else {
 				Character start = stack.peek();
-				int before = stack.size();
 				if (c.equals(')') && start.equals('(')) {
 					stack.pop();
 				} else if (c.equals('}') && start.equals('{')) {
@@ -39,12 +38,12 @@ class Questing {
 				} else if (c.equals(']') && start.equals('[')) {
 					stack.pop();
 				}
-				int after = stack.size();
-				if (before == after) {
-					return false;
-				}
 			}
 		}
-		return true;
+		if (stack.isEmpty()){
+			return true;
+		}else{
+			return false;	
+		}
 	}
 }
